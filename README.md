@@ -80,3 +80,9 @@ Every result is a possible match for human review. The app does not submit or co
 - `tests/`: deterministic matching and ingestion tests
 - `SESSION-GUIDE.md`: facilitated session plan
 - `ADDING-AN-AGENCY.md`: repeatable agency-onboarding guide
+
+## Deploy to Render
+
+The repository includes a Render Blueprint for a static site. After connecting the private GitHub repository to Render, create a Blueprint from `render.yaml`. Render will publish the repository root and redeploy automatically after commits to the linked branch.
+
+[Deploy to Render](https://render.com/deploy?repo=https://github.com/oliverkoast/mimi-talent-intelligence-trial)
