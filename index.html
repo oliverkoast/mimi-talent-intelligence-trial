@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Talent Intelligence — Public-data trial</title>
+  <meta name="description" content="A local public-data talent discovery and opportunity-matching trial.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Talent Intelligence home">
+      <span class="brand-mark" aria-hidden="true">TI</span>
+      <span><strong>Talent Intelligence</strong><small>Public-data trial</small></span>
+    </a>
+    <nav class="department-nav" aria-label="Public departments">
+      <a href="index.html" class="active" aria-current="page">Voice</a>
+      <a href="print.html">Commercial Print NY</a>
+    </nav>
+    <div class="dataset-status"><span class="status-dot"></span><strong id="talentCount">271</strong> public voice profiles · checked Aug 17, 2026</div>
+  </header>
+
+  <div class="notice" role="note">
+    <strong>Independent research prototype.</strong> Not affiliated with Buchwald. Public portfolio data may be incomplete or stale. Representation, preferences, availability, conflicts, rates, and eligibility require authorized confirmation.
+  </div>
+
+  <main class="workspace">
+    <aside class="control-panel" aria-label="Opportunity controls">
+      <div class="eyebrow">Opportunity brief</div>
+      <h1>Who fits this work?</h1>
+      <p class="intro">Describe a fictional or public opportunity. Results are ranked only by labels found in the public Voice portfolio.</p>
+
+      <label for="opportunity">Plain-language query</label>
+      <textarea id="opportunity" rows="6">Spanish-speaking woman for a warm, conversational national commercial</textarea>
+      <button id="analyze" class="primary-button">Analyze opportunity <span>⌘↵</span></button>
+
+      <div class="example-block">
+        <span>Try an example</span>
+        <button class="example" data-query="British male voice for dramatic trailers and promo">British dramatic trailer</button>
+        <button class="example" data-query="Woman with audiobook and narration experience">Audiobook narrator</button>
+        <button class="example" data-query="Comedic character voice for an animated game">Animated game character</button>
+      </div>
+
+      <div class="divider"></div>
+      <div class="filter-heading"><span>Refine results</span><button id="clearFilters">Reset</button></div>
+      <label for="nameFilter">Name</label>
+      <input id="nameFilter" type="search" placeholder="Search public names">
+      <div class="filter-grid">
+        <div>
+          <label for="genderFilter">Portfolio filter</label>
+          <select id="genderFilter">
+            <option value="all">All</option>
+            <option value="women">Women</option>
+            <option value="men">Men</option>
+          </select>
+        </div>
+        <div>
+          <label for="categoryFilter">Category</label>
+          <select id="categoryFilter"><option value="all">All categories</option></select>
+        </div>
+      </div>
+
+      <details class="methodology">
+        <summary>How ranking works</summary>
+        <p>Exact public category matches carry the most weight. Explicit words in demo labels add evidence. The tool does not listen to audio or infer private preferences.</p>
+      </details>
+    </aside>
+
+    <section class="results-panel" aria-live="polite">
+      <div class="results-header">
+        <div>
+          <div class="eyebrow">Evidence-backed shortlist</div>
+          <h2 id="resultsTitle">Matching public profiles</h2>
+        </div>
+        <div class="results-actions">
+          <span id="resultCount"></span>
+          <select id="sortOrder" aria-label="Sort results">
+            <option value="fit">Best evidence</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </div>
+      </div>
+
+      <section id="criteria" class="criteria" aria-label="Interpreted criteria"></section>
+      <div id="unknownNotice" class="unknown-notice" hidden></div>
+      <div id="results" class="results-list"></div>
+    </section>
+
+    <aside class="shortlist-panel" aria-label="Selected shortlist">
+      <div class="shortlist-head">
+        <div><div class="eyebrow">Human review</div><h2>Shortlist</h2></div>
+        <span id="shortlistCount" class="count-pill">0</span>
+      </div>
+      <p id="shortlistEmpty" class="shortlist-empty">Select public profiles to compare supporting evidence. Nothing is submitted or sent.</p>
+      <div id="shortlist"></div>
+      <button id="copyBrief" class="secondary-button" disabled>Copy review brief</button>
+      <p id="copyStatus" class="copy-status" role="status"></p>
+    </aside>
+  </main>
+
+  <footer>
+    Source: <a href="https://portfolio.buchwald.com/departments/voice" target="_blank" rel="noreferrer">Buchwald public Voice portfolio</a>. Demo labels are evidence of public portfolio categorization, not current availability or personal preference.
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

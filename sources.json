@@ -1,0 +1,29 @@
+{
+  "sources": [
+    {
+      "id": "buchwald-voice",
+      "agency": "Buchwald",
+      "department": "Voice",
+      "adapter": "buchwald_voice_tracks",
+      "roster_url": "https://portfolio.buchwald.com/departments/voice",
+      "output_module": "talent-data.js",
+      "export_name": "TALENT"
+    },
+    {
+      "id": "buchwald-commercial-print-ny",
+      "agency": "Buchwald",
+      "department": "Commercial Print NY",
+      "adapter": "generic_profile_directory",
+      "roster_url": "https://portfolio.buchwald.com/departments/commercial-print-ny",
+      "output_module": "print-data.js",
+      "export_name": "PRINT_TALENT",
+      "list_selector": ".print-dept-card",
+      "link_selector": "a[href*='/portfolios/']",
+      "name_selector": ".talent-name",
+      "gender_attribute": "data-gender",
+      "detail_name_selector": "h1",
+      "detail_attribute_selector": "li",
+      "detail_image_selector": "img.image-thumb[src]"
+    }
+  ]
+}

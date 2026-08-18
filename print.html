@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Commercial Print Intelligence — Public-data trial</title>
+  <meta name="description" content="A local public-data Commercial Print talent discovery trial.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Talent Intelligence home">
+      <span class="brand-mark" aria-hidden="true">TI</span>
+      <span><strong>Talent Intelligence</strong><small>Public-data trial</small></span>
+    </a>
+    <nav class="department-nav" aria-label="Public departments">
+      <a href="index.html">Voice</a>
+      <a href="print.html" class="active" aria-current="page">Commercial Print NY</a>
+    </nav>
+    <div class="dataset-status"><span class="status-dot"></span><strong id="talentCount">409</strong> public print profiles · checked Aug 18, 2026</div>
+  </header>
+
+  <div class="notice" role="note">
+    <strong>Independent research prototype.</strong> Public agency portfolio fields only. No image-based race or age inference. Human-reviewed appearance tags stay in this browser and are not presented as agency facts.
+  </div>
+
+  <main class="workspace print-workspace">
+    <aside class="control-panel" aria-label="Opportunity controls">
+      <div class="eyebrow">Commercial Print NY</div>
+      <h1>Find a visual fit.</h1>
+      <p class="intro">Describe a fictional or public print opportunity. The app matches explicit portfolio fields and clearly separates local human review.</p>
+
+      <label for="opportunity">Plain-language query</label>
+      <textarea id="opportunity" rows="6">Bald Black man with glasses for a contemporary lifestyle campaign</textarea>
+      <button id="analyze" class="primary-button">Analyze opportunity <span>⌘↵</span></button>
+
+      <div class="example-block">
+        <span>Try an example</span>
+        <button class="example" data-query="Bald Black man with glasses for a contemporary lifestyle campaign">Bald Black man</button>
+        <button class="example" data-query="White older man with a beard for a heritage brand campaign">Older white man with beard</button>
+        <button class="example" data-query="Woman around 5'7 with blonde hair and blue eyes">Blonde woman, 5'7</button>
+      </div>
+
+      <div class="divider"></div>
+      <div class="filter-heading"><span>Refine results</span><button id="clearFilters">Reset</button></div>
+      <label for="nameFilter">Name</label>
+      <input id="nameFilter" type="search" placeholder="Search public names">
+      <div class="filter-grid">
+        <div><label for="genderFilter">Portfolio filter</label><select id="genderFilter"><option value="all">All</option><option value="women">Women</option><option value="men">Men</option></select></div>
+        <div><label for="ethnicityFilter">Agency-listed ethnicity</label><select id="ethnicityFilter"><option value="all">All</option></select></div>
+        <div><label for="hairFilter">Hair color</label><select id="hairFilter"><option value="all">All</option></select></div>
+        <div><label for="sortOrder">Sort</label><select id="sortOrder"><option value="fit">Best evidence</option><option value="name">Name A–Z</option><option value="height">Height</option></select></div>
+      </div>
+
+      <details class="methodology" open>
+        <summary>Structured versus reviewed</summary>
+        <p>Gender, ethnicity, height, hair, eyes, and sizes come from public agency fields. Bald, beard, glasses, and mature presentation are optional human-reviewed local tags. The app never derives ethnicity or age from a photograph.</p>
+      </details>
+    </aside>
+
+    <section class="results-panel" aria-live="polite">
+      <div class="results-header">
+        <div><div class="eyebrow">Evidence-backed discovery</div><h2>Commercial Print profiles</h2></div>
+        <span id="resultCount" class="results-count"></span>
+      </div>
+      <section id="criteria" class="criteria" aria-label="Interpreted criteria"></section>
+      <div id="reviewNotice" class="unknown-notice" hidden></div>
+      <div id="results" class="print-results"></div>
+    </section>
+
+    <aside class="shortlist-panel" aria-label="Selected shortlist">
+      <div class="shortlist-head"><div><div class="eyebrow">Human review</div><h2>Shortlist</h2></div><span id="shortlistCount" class="count-pill">0</span></div>
+      <p id="shortlistEmpty" class="shortlist-empty">Select public profiles to compare. Nothing is submitted or sent.</p>
+      <div id="shortlist"></div>
+      <button id="copyBrief" class="secondary-button" disabled>Copy review brief</button>
+      <p id="copyStatus" class="copy-status" role="status"></p>
+    </aside>
+  </main>
+
+  <footer>
+    Source: <a href="https://portfolio.buchwald.com/departments/commercial-print-ny" target="_blank" rel="noreferrer">Buchwald public Commercial Print NY portfolio</a>. “NY” identifies the public department, not verified residence or current location.
+  </footer>
+  <script type="module" src="print-app.js"></script>
+</body>
+</html>
